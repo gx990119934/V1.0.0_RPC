@@ -2,6 +2,7 @@ package org.rpc.remoting.util;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.rpc.remoting.helper.StringUtil;
 
 public class StringUtilsTest {
 	

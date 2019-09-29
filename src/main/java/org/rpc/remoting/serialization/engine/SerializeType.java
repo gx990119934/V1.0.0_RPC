@@ -1,6 +1,6 @@
 package org.rpc.remoting.serialization.engine;
 
-import org.rpc.remoting.util.StringUtil;
+import org.rpc.remoting.helper.StringUtil;
 
 /**
  * @author xingg

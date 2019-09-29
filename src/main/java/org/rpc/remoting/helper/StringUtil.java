@@ -1,4 +1,4 @@
-package org.rpc.remoting.util;
+package org.rpc.remoting.helper;
 
 /**
  * @author xingg

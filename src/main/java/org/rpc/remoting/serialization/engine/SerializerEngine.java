@@ -2,6 +2,7 @@ package org.rpc.remoting.serialization.engine;
 
 import java.util.Map;
 
+import org.rpc.remoting.helper.Maps;
 import org.rpc.remoting.serialization.impl.DefaultJavaSerializer;
 import org.rpc.remoting.serialization.impl.FastJSONSerializer;
 import org.rpc.remoting.serialization.impl.HessianSerializer;
@@ -10,8 +11,11 @@ import org.rpc.remoting.serialization.impl.ProtoStuffSerializer;
 import org.rpc.remoting.serialization.impl.XmlJavaDefaultSerializer;
 import org.rpc.remoting.serialization.impl.XmlSerializer;
 import org.rpc.remoting.serialization.itf.Iserializer;
-import org.rpc.remoting.util.Maps;
 
+/**
+ * @author xingg
+ * 序列化工具引擎
+ */
 public class SerializerEngine {
 
 	public static final Map<SerializeType, Iserializer> serializerMap = Maps.newConcurrentMap();
