@@ -6,7 +6,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.rpc.remoting.serialization.impl.DefaultJavaSerializer;
 import org.rpc.remoting.serialization.impl.FastJSONSerializer;
+import org.rpc.remoting.serialization.impl.HessianSerializer;
 import org.rpc.remoting.serialization.impl.JSONSerializer;
+import org.rpc.remoting.serialization.impl.ProtoStuffSerializer;
 import org.rpc.remoting.serialization.impl.XmlJavaDefaultSerializer;
 import org.rpc.remoting.serialization.impl.XmlSerializer;
 import org.rpc.remoting.serialization.model.User;
@@ -22,6 +24,10 @@ public class IserializerTest {
 	Iserializer jSONSerializer = new JSONSerializer();
 	
 	Iserializer fastJSONSerializer = new FastJSONSerializer();
+	
+	Iserializer hessianSerializer = new HessianSerializer();
+	
+	Iserializer protoStuffSerializer = new ProtoStuffSerializer();
 	/**
 	 * java自带序列化
 	 */
@@ -84,4 +90,27 @@ public class IserializerTest {
 		Assert.assertEquals(user.toString(),actualUser.toString());
 	}
 
+	/**
+	 * hessian序列化
+	 */
+	@Test
+	public void hessianSerializerTest(){
+		User user = new User(1,"hello","18929300493");
+		user.setBirthday(new Date());
+		byte[] bytes = hessianSerializer.serialize(user);
+		User actualUser= hessianSerializer.deSerialize(bytes, User.class);
+		Assert.assertEquals(user.toString(),actualUser.toString());
+	}
+	
+	/**
+	 * protostuff序列化
+	 */
+	@Test
+	public void protoStuffSerializerTest(){
+		User user = new User(1,"hello","18929300493");
+		user.setBirthday(new Date());
+		byte[] bytes = protoStuffSerializer.serialize(user);
+		User actualUser= protoStuffSerializer.deSerialize(bytes, User.class);
+		Assert.assertEquals(user.toString(),actualUser.toString());
+	}
 }
